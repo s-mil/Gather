@@ -18,7 +18,7 @@ package com.gather;
         import com.google.firebase.auth.AuthResult;
         import com.google.firebase.auth.FirebaseAuth;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends Activity{      //AppCompatActivity
 
     private EditText inputEmail, inputPassword;
     private FirebaseAuth auth;
