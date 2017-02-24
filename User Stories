@@ -1,0 +1,21 @@
+Peyton Leathem-Boe
+Sweta Ghimire
+Sam Miller
+Josh Millsap
+
+User Story #1: If user presses the “Sign In” button then they will be directed to the Google sign-in page and asked to authenticate their username and password
+User Story #2: If user presses the button for “Official Group Projects”, then they will be taken to a page containing a list of their groups dedicated entirely to schoolwork
+User Story #3: If user presses the button for “Misc. Groups”, then they are taken to a page that contains a list of the groups they have joined that are not meant for schoolwork
+User Story #4: If user presses the button for “Availability Schedule”, then they will be taken to a page where they can input their schedule using Google Calendar
+User Story #5: If user presses the button for “Create Account” they will be taken to a page that allows them to input their information and create an account.
+User Story #6: If user presses button for “Create Group” they will be taken to a page where they can input information to create a group.
+User Story #7: If user presses button for “Search Group” the user will be able to look through a list of non-private groups 
+User Story #8: If user presses button for “Join Group” the user will be taken to a page that informs them that they have joined their selected group and the user’s group list will be updated accordingly.
+User Story #9: If user presses button for “Leave Group” the user will be taken to a page that informs them that they have left their selected group and the user’s group list will be updated accordingly.
+User Story #10: If the user selects the button for “Go Premium” they will be brought to a page that informs them of the benefits of upgrading to the premium version and allows them to input their information to buy the premium version.
+User Story #11: If the user presses “Log Out” they will be brought to a page informing them that they have been successfully logged out before redirecting them to the login screen
+User Story #12: If, while in a certain group, the user presses the “create message” button, the user will be able to write a message and post it to the group forum
+User Story #13: On a user’s messages, a user can click “edit” to bring up a menu allowing the user to edit their message. 
+User Story #14: On a user’s messages, a user can click “delete” to delete their posted message from the group forum.
+User Story #15: On a premium account, a user has the option to send private messages. Clicking on the message icon next to a user’s name will bring up a menu that allows the premium user to input a private message to an individual.
+User Story #16: If a user presses the “Block/Report’ button they are brought to a page that allows them to input information about why they feel the group/individual has violated rules of morality and decency as established by the creators of the group- these concerns will then be addressed by group moderators.
