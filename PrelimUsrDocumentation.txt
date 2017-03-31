@@ -1,3 +1,8 @@
+Peyton Leathem-Boe
+Sweta Ghimire
+Sam Miller
+Josh Millsap
+
 To get started using the Gather app press the “Create Account” button to be taken to a page that allows you to input their information and create an account, or if you have a Google account and would like to use the google sign in feature go ahead and click sign in.
 
 To get started using the app after creating an account press the “Sign In” button to be directed to the a sign in page with options to use either your google account to sign in or the account created previously with your email and password.
