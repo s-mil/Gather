@@ -3,33 +3,31 @@ Sweta Ghimire
 Sam Miller
 Josh Millsap
 
-To get started using the Gather app press the “Create Account” button to be taken to a page that allows you to input their information and create an account, or if you have a Google account and would like to use the google sign in feature go ahead and click sign in.
+To get started using the Gather app, press the “Create Account” button. You will be taken to a page that will allow you to input your information and create an account, or if you have a Google account and would like to use the google sign in feature just click sign in with google.
 
-To get started using the app after creating an account press the “Sign In” button to be directed to the a sign in page with options to use either your google account to sign in or the account created previously with your email and password.
+To get started using the app after creating an account press the “Sign In” button. You will be directed to the a sign in page with options to use either your google account to sign in or the account created previously with your email and password.
 
+When you press the button labeled “Official Group Projects”, then you will be taken to a page containing a list of groups dedicated entirely to schoolwork.
 
-When you press the button for “Official Group Projects”, then you will be taken to a page containing a list of groups dedicated entirely to schoolwork.
+When you press the button labeled “Misc. Groups”, then you are taken to a page that contains a list of the groups they have joined that are not meant for schoolwork, and are more for entertainment than work
 
-When you press the button for “Misc. Groups”, then you are taken to a page that contains a list of the groups they have joined that are not meant for schoolwork, and are more for entertainment than work
+when you press the button labeled “Availability Schedule”, then you will be taken to a page where you can input your schedule using Google Calendar, only the busy not busy status will be shared by default.
 
-when you press the button for “Availability Schedule”, then you will be taken to a page where you can input their schedule using Google Calendar, only the busy not busy status will be shared by default.
+When you press the button labeled “Create Group” you will be taken to a page where they can input information to create a group.
 
-When you press the button for “Create Group” you will be taken to a page where they can input information to create a group.
+when you press the button labeled “Search Group”  you will be able to look through a list of non-private groups
 
-when you press the button for “Search Group” the you will be able to look through a list of non-private groups
+Press the “Join Group” button to join a new group. You will be taken to a page that will inform you that you have joined your selected group. Your group list will be updated accordingly.
 
- When you press button for “Join Group” the you will be taken to a page that informs them that they have joined their selected group and the user's group list will be updated accordingly.
+Press the “Leave Group” button to leave the selected group. You will be taken to a page will inform you that you have left the selected group. Your group list will be updated accordingly.
 
- If you press button for “Leave Group” the you will be taken to a page that informs them that they have left their selected group and the user’s group list will be updated accordingly.
+If the you select the button labeled “Go Premium” you will be brought to a page that lists premium features and will allow you to input payment information to buy the premium version.
+If the you press the “Log Out” you will be brought to a page that will inform you that you have been successfully logged out. You will then be redirected to the login screen.
 
-If the you selects the button for “Go Premium” they will be brought to a page that informs them of the benefits of upgrading to the premium version and allows them to input their information to buy the premium version.
- If the you press “Log Out” they will be brought to a page informing them that they have been successfully logged out before redirecting them to the login screen
+If, while in a certain group, the you press the “create message” button, the you will be able to write a message and post it to the group forum.
 
- If, while in a certain group, the you press the “create message” button, the you will be able to write a message and post it to the group forum
- On a users messages, a you can click “edit” to bring up a menu allowing the you to edit their message.
+If you are the group leader, you will be able to click “delete” on a users message to delete it from the group forum.
 
-On a user’s messages, a you can click “delete” to delete their posted message from the group forum.
+On a premium account, a you has the option to send private messages. Clicking on the message icon next to a user’s name will bring up a menu that allows the premium you to input a private message to an individual.
 
-On a premium account, a you has the option to send private messages. Clicking on the message icon next to a you’s name will bring up a menu that allows the premium you to input a private message to an individual.
-
-If a you press the “Block/Report’ button they are brought to a page that allows them to input information about why they feel the group/individual has violated rules of morality and decency as established by the creators of the group- these concerns will then be addressed by group moderators.
+If you press the “Block/Report’ button you will be brought to a page which will allow you to input information about why you feel the group/individual has violated rules of morality and decency as established by the creators of the group- these concerns will then be addressed by group moderators.
