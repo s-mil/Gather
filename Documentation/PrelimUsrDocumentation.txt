@@ -5,29 +5,30 @@ Josh Millsap
 
 To get started using the Gather app, press the “Create Account” button. You will be taken to a page that will allow you to input your information and create an account, or if you have a Google account and would like to use the google sign in feature just click sign in with google.
 
-To get started using the app after creating an account press the “Sign In” button. You will be directed to the a sign in page with options to use either your google account to sign in or the account created previously with your email and password.
+To get started using the app after creating an account, press the “Sign In” button. You will be directed to the sign in page with options to use either your google account to sign in or the account created previously with your email and password.
 
 When you press the button labeled “Official Group Projects”, then you will be taken to a page containing a list of groups dedicated entirely to schoolwork.
 
-When you press the button labeled “Misc. Groups”, then you are taken to a page that contains a list of the groups they have joined that are not meant for schoolwork, and are more for entertainment than work
+When you press the button labeled “Misc. Groups”, then you are taken to a page that contains a list of the groups you have joined that are not meant for schoolwork, and are more for entertainment than work.
 
-when you press the button labeled “Availability Schedule”, then you will be taken to a page where you can input your schedule using Google Calendar, only the busy not busy status will be shared by default.
+When you press the button labeled “Availability Schedule”, then you will be taken to a page where you can input your schedule using Google Calendar. This will be used to find the optimal time for members of a group to meet; only the busy or not busy status will be shared by default so your privacy isn't compromised.
 
-When you press the button labeled “Create Group” you will be taken to a page where they can input information to create a group.
+When you press the button labeled “Create Group” you will be taken to a page where you can input information to create a group. Once you have successfully created the group, you will be designated the group leader and given privileges to administer the group.
 
-when you press the button labeled “Search Group”  you will be able to look through a list of non-private groups
+When you press the button labeled “Search Group”, you will be able to look through a list of non-private groups.
 
 Press the “Join Group” button to join a new group. You will be taken to a page that will inform you that you have joined your selected group. Your group list will be updated accordingly.
 
 Press the “Leave Group” button to leave the selected group. You will be taken to a page will inform you that you have left the selected group. Your group list will be updated accordingly.
 
-If the you select the button labeled “Go Premium” you will be brought to a page that lists premium features and will allow you to input payment information to buy the premium version.
-If the you press the “Log Out” you will be brought to a page that will inform you that you have been successfully logged out. You will then be redirected to the login screen.
+If the you select the button labeled “Go Premium” you will be brought to a page that lists premium features and will allow you to input payment information to buy the premium version. If you buy the premium version, your account will permanently recieve the premium features of the app.
 
-If, while in a certain group, the you press the “create message” button, the you will be able to write a message and post it to the group forum.
+If the you press the “Log Out” button, you will be brought to a page that will inform you that you have been successfully logged out. You will then be redirected to the login screen.
 
-If you are the group leader, you will be able to click “delete” on a users message to delete it from the group forum.
+If, while in a certain group, you press the “create message” button, the you will be able to write a message and post it to the group forum.
 
-On a premium account, a you has the option to send private messages. Clicking on the message icon next to a user’s name will bring up a menu that allows the premium you to input a private message to an individual.
+If you are the group leader, you will be able to click “delete” on a user's message to delete it from the group forum.
+
+On a premium account, you have the option to send private messages. Clicking on the message icon next to a user’s name will bring up a menu that allows a premium user to input and send a private message to an individual.
 
 If you press the “Block/Report’ button you will be brought to a page which will allow you to input information about why you feel the group/individual has violated rules of morality and decency as established by the creators of the group- these concerns will then be addressed by group moderators.
