@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -92,7 +93,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                    createUser();
+                                    createUser(task.getResult().getUser());
                                     finish();
                                 }
                             }
@@ -101,17 +102,18 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
-    private void createUser(){
+    private void createUser(FirebaseUser firebase_user){
         if(auth.getCurrentUser().getUid() !=  null){
-            User user = new User(1,2,3,4,5,6,7,8,9,0,10,9,8);
+            User user = new User(0,0,0,0,0,0,0,0,0,0,0,0,0);
             String uid = auth.getCurrentUser().getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-            DatabaseReference create_user = ref.child("users").child(uid);
+            DatabaseReference create_user = ref.child("users").child(firebase_user.getUid());
             create_user.setValue(user);
         }
     }
