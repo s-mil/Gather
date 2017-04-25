@@ -5,22 +5,6 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class User {
-    public String Username = " ";
-    public String CourseNumber = " ";
-    public String Art = "Art";
-    public String Design = "Design";
-    public String Leadership = "Leadership";
-    public String Java = "Java";
-    public String Python = "Python";
-    public String CSharp = "C#";
-    public String Windows = "Windows";
-    public String Linux = "Linux";
-    public String OSX = "OSX";
-    public String Android = "Android";
-    public String IOS = "IOS";
-    public String CPP = "C++";
-    public String HTML = "HTML";
-
     public int ArtLevel =   0;
     public int DesignLevel =   0;
     public int LeadershipLevel =  0;
@@ -69,31 +53,31 @@ public class User {
     public ArrayList WhatIs() {
         ArrayList<String> list = new ArrayList<>();
         if (isArt)
-            list.add(Art);
+            list.add("Art");
         if (isDesign)
-            list.add(Design);
+            list.add("Design");
         if (isLeadership)
-            list.add(Leadership);
+            list.add("Leadership");
         if (isJava)
-            list.add(Java);
+            list.add("Java");
         if (isPython)
-            list.add(Python);
+            list.add("Python");
         if (isCSharp)
-            list.add(CSharp);
+            list.add("CSharp");
         if (isWindows)
-            list.add(Windows);
+            list.add("Windows");
         if (isLinux)
-            list.add(Linux);
+            list.add("Linux");
         if (isOSX)
-            list.add(OSX);
+            list.add("OSX");
         if (isAndroid)
-            list.add(Android);
+            list.add("Android");
         if (isIOS)
-            list.add(IOS);
+            list.add("IOS");
         if (isCPP)
-            list.add(CPP);
+            list.add("CPP");
         if (isHTML)
-            list.add(HTML);
+            list.add("HTML");
         return list;
     }
 }

@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="spinnerItems">
+    <string-array name="spinneritems">
+        <item>n/a</item>
+        <item>Art</item>
+        <item>Design</item>
+        <item>Leadership</item>
+        <item>Java</item>
+        <item>Python</item>
+        <item>C#</item>
+        <item>Windows</item>
+        <item>Linux</item>
+        <item>OSX</item>
+        <item>Android</item>
+        <item>IOS</item>
+        <item>C++</item>
+        <item>HTML</item>
+    </string-array>
+    <string-array name="spinnervalues">
         <item>n/a</item>
         <item>1</item>
         <item>2</item>
