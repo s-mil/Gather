@@ -92,6 +92,7 @@ public class SignupActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                    createUser();
                                     finish();
                                 }
                             }
@@ -107,10 +108,11 @@ public class SignupActivity extends AppCompatActivity {
     }
     private void createUser(){
         if(auth.getCurrentUser().getUid() !=  null){
+            User user = new User(1,2,3,4,5,6,7,8,9,0,10,9,8);
             String uid = auth.getCurrentUser().getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
             DatabaseReference create_user = ref.child("users").child(uid);
-           // create_user.push();
+            create_user.setValue(user);
         }
     }
 }
