@@ -1,9 +1,12 @@
 package com.gather;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,29 +17,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Button signout;
+    Context context = this;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        signout = (Button) findViewById(R.id.btn_signout);
-        signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth auth;
-                auth = FirebaseAuth.getInstance();
-                auth.signOut();
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
-                finish();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -90,21 +84,29 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         if (id == R.id.nav_profile) {
         } else if (id == R.id.nav_newGroup) {
-
+            startActivity(new Intent());
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_signout) {
-            signout = (Button) findViewById(R.id.nav_signout);
-            signout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FirebaseAuth auth;
+                    final FirebaseAuth auth;
                     auth = FirebaseAuth.getInstance();
-                    auth.signOut();
-                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
-                    finish();
-                }
-            });
+                    AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                    builder.setMessage("Are you sure you want to sign out?").setTitle("Sign Out")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    auth.signOut();
+                                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                                    finish();
+                                }
+                            })
+                            .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                    // User cancelled the dialog
+                                }
+                            });
+                    builder.create();
+            builder.show();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

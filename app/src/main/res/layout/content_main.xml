@@ -32,11 +32,4 @@
         android:layout_below="@+id/imageView3"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/btn_signout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Out"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
 </RelativeLayout>
