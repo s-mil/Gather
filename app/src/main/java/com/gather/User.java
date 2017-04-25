@@ -80,4 +80,22 @@ public class User {
             list.add("HTML");
         return list;
     }
+    public ArrayList getLevels() {
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(ArtLevel);
+        list.add(DesignLevel);
+        list.add(LeadershipLevel);
+        list.add(JavaLevel);
+        list.add(PythonLevel);
+        list.add(CSharpLevel);
+        list.add(WindowsLevel);
+        list.add(LinuxLevel);
+        list.add(OSXLevel);
+        list.add(AndroidLevel);
+        list.add(IOSLevel);
+        list.add(CPPLevel);
+        list.add(CPPLevel);
+        list.add(HTMLLevel);
+        return list;
+    }
 }

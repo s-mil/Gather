@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         if (id == R.id.nav_profile) {
-            startActivity(new Intent(MainActivity.this,newGroupActivity.class));
+            startActivity(new Intent(MainActivity.this,myProfileActivity.class));
         } else if (id == R.id.nav_newGroup) {
             startActivity(new Intent(MainActivity.this,newGroupActivity.class));
         } else if (id == R.id.nav_manage) {
