@@ -110,7 +110,7 @@ public class SignupActivity extends AppCompatActivity {
             String uid = auth.getCurrentUser().getUid();
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
             DatabaseReference create_user = ref.child("users").child(uid);
-            create_user.push();
+           // create_user.push();
         }
     }
 }
