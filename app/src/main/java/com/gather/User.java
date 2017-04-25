@@ -1,27 +1,25 @@
 package com.gather;
-
 import android.view.Window;
 
 import java.util.ArrayList;
-
-/**
- * Created by Sithis on 4/25/2017.
- */
+import java.util.StringTokenizer;
 
 public class User {
     private String Username;
     private String CourseNumber;
-    private String Art;
-    private String Design;
-    private String Leadership;
-    private String Java;
-    private String Python;
-    private String CSharp;
-    private String Windows;
-    private String Linux;
-    private String OSX;
-    private String Android;
-    private String IOS;
+    private String Art = "Art";
+    private String Design = "Design";
+    private String Leadership = "Leadership";
+    private String Java = "Java";
+    private String Python = "Python";
+    private String CSharp = "C#";
+    private String Windows = "Windows";
+    private String Linux = "Linux";
+    private String OSX = "OSX";
+    private String Android = "Android";
+    private String IOS = "IOS";
+    private String CPP = "C++";
+    private String HTML = "HTML";
 
     private int ArtLevel;
     private int DesignLevel;
@@ -34,6 +32,8 @@ public class User {
     private int OSXLevel;
     private int AndroidLevel;
     private int IOSLevel;
+    private int CPPLevel;
+    private int HTMLLevel;
 
     private boolean isArt;
     private boolean isDesign;
@@ -46,10 +46,12 @@ public class User {
     private boolean isOSX;
     private boolean isAndroid;
     private boolean isIOS;
+    private boolean isCPP;
+    private boolean isHTML;
     User(){
 
     }
-    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl){
+    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl){
         this.ArtLevel = Artlvl;
         this.DesignLevel = Designlvl;
         this.LeadershipLevel = Leadershiplvl;
@@ -61,6 +63,8 @@ public class User {
         this.OSXLevel = OSXlvl;
         this.AndroidLevel = Androidlvl;
         this.IOSLevel = IOSlvl;
+        this.CPPLevel = CPPlvl;
+        this.HTMLLevel = HTMPlvl;
     }
     public ArrayList WhatIs() {
         ArrayList<String> list = new ArrayList<>();
@@ -86,7 +90,10 @@ public class User {
             list.add(Android);
         if (isIOS)
             list.add(IOS);
+        if (isCPP)
+            list.add(CPP);
+        if (isHTML)
+            list.add(HTML);
         return list;
     }
-    //blah
 }
