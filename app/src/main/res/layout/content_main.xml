@@ -14,20 +14,29 @@
     tools:showIn="@layout/app_bar_main"
     android:background="@color/input_register_hint">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/ic_launcher"
+        android:layout_alignParentTop="true" />
+
     <TextView
+        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autoText="false"
         android:text="Welcome to Gather!"
         android:textColor="@color/white"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageView3"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/btn_signout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Sign Out" />
+        android:text="Sign Out"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

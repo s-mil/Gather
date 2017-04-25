@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class User {
-    private String Username;
-    private String CourseNumber;
+    private String Username = " ";
+    private String CourseNumber = " ";
     private String Art = "Art";
     private String Design = "Design";
     private String Leadership = "Leadership";
@@ -21,33 +21,33 @@ public class User {
     private String CPP = "C++";
     private String HTML = "HTML";
 
-    private int ArtLevel;
-    private int DesignLevel;
-    private int LeadershipLevel;
-    private int JavaLevel;
-    private int PythonLevel;
-    private int CSharpLevel;
-    private int WindowsLevel;
-    private int LinuxLevel;
-    private int OSXLevel;
-    private int AndroidLevel;
-    private int IOSLevel;
-    private int CPPLevel;
-    private int HTMLLevel;
+    private int ArtLevel =   0;
+    private int DesignLevel =   0;
+    private int LeadershipLevel =  0;
+    private int JavaLevel =  0;
+    private int PythonLevel =  0;
+    private int CSharpLevel =  0;
+    private int WindowsLevel =  0;
+    private int LinuxLevel =  0;
+    private int OSXLevel =  0;
+    private int AndroidLevel =  0;
+    private int IOSLevel =  0;
+    private int CPPLevel =  0;
+    private int HTMLLevel =  0;
 
-    private boolean isArt;
-    private boolean isDesign;
-    private boolean isLeadership;
-    private boolean isJava;
-    private boolean isPython;
-    private boolean isCSharp;
-    private boolean isWindows;
-    private boolean isLinux;
-    private boolean isOSX;
-    private boolean isAndroid;
-    private boolean isIOS;
-    private boolean isCPP;
-    private boolean isHTML;
+    private boolean isArt = false;
+    private boolean isDesign = false;
+    private boolean isLeadership = false;
+    private boolean isJava = false;
+    private boolean isPython = false;
+    private boolean isCSharp = false;
+    private boolean isWindows = false;
+    private boolean isLinux = false;
+    private boolean isOSX = false;
+    private boolean isAndroid = false;
+    private boolean isIOS = false;
+    private boolean isCPP = false;
+    private boolean isHTML = false;
     User(){
 
     }
