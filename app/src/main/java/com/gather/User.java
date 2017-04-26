@@ -17,10 +17,13 @@ public class User {
     public int IOSLevel =  0;
     public int CPPLevel =  0;
     public int HTMLLevel =  0;
+    public int CourseNum = 0;
+    public int SectionNum= 0;
+    public int inGroup = 0;
     User(){
 
     }
-    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl){
+    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl, int CourseNum, int SectionNum, int inGroup){
         this.ArtLevel = Artlvl;
         this.DesignLevel = Designlvl;
         this.LeadershipLevel = Leadershiplvl;
@@ -34,6 +37,9 @@ public class User {
         this.IOSLevel = IOSlvl;
         this.CPPLevel = CPPlvl;
         this.HTMLLevel = HTMPlvl;
+        this.CourseNum = CourseNum;
+        this.SectionNum = SectionNum;
+        this.inGroup = inGroup;
     }
     public ArrayList getLevels() {
         ArrayList<Integer> list = new ArrayList<>();
@@ -52,5 +58,10 @@ public class User {
         list.add(CPPLevel);
         list.add(HTMLLevel);
         return list;
+    }
+    public boolean inGroup() {
+        if (inGroup == 0)
+            return false;
+        return true;
     }
 }
