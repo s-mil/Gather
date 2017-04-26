@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(new Intent(MainActivity.this,newGroupActivity.class));
             finish();
         } else if (id == R.id.nav_manage) {
-
+            startActivity(new Intent(MainActivity.this,MessageActivity.class));
+            finish();
         } else if (id == R.id.nav_signout) {
                     final FirebaseAuth auth;
                     auth = FirebaseAuth.getInstance();
