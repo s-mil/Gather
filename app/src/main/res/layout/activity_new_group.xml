@@ -56,7 +56,7 @@
                     android:id="@+id/javaLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -70,7 +70,7 @@
                     android:id="@+id/cppLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView29"
@@ -84,7 +84,7 @@
                     android:id="@+id/cSharpLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView28"
@@ -98,7 +98,7 @@
                     android:id="@+id/htmlLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView27"
@@ -112,7 +112,7 @@
                     android:id="@+id/pythonLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView26"
@@ -126,7 +126,7 @@
                     android:id="@+id/androidLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView25"
@@ -140,7 +140,7 @@
                     android:id="@+id/iosLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView24"
@@ -154,7 +154,7 @@
                     android:id="@+id/linuxLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView23"
@@ -168,7 +168,7 @@
                     android:id="@+id/osxLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView22"
@@ -182,7 +182,7 @@
                     android:id="@+id/windowsLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView21"
@@ -196,7 +196,7 @@
                     android:id="@+id/artLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView20"
@@ -210,7 +210,7 @@
                     android:id="@+id/designLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <TextView
                     android:id="@+id/textView19"
@@ -224,7 +224,7 @@
                     android:id="@+id/leadershipLevel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:entries="@array/spinnerItems" />
+                    android:entries="@array/spinnervalues" />
 
                 <Button
                     android:id="@+id/button2"
