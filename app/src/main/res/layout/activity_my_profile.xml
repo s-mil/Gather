@@ -10,6 +10,16 @@
 
 
     <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_ViewSkills"
+        android:layout_marginTop="14dp"
+        android:text="My Group"
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,19 +80,65 @@
         android:id="@+id/textGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/btn_ViewSkills"
-        android:layout_marginTop="14dp"
-        android:text="My Group"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="34dp"
+        android:text="Course Number"
         android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_leaveGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Leave Group"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/editTextCourseNumberProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textGroup"
+        android:layout_below="@+id/textGroup"
+        android:layout_marginTop="37dp"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Section Number"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        android:layout_marginBottom="12dp"
+        android:layout_above="@+id/btn_setSectionNum"
+        android:layout_alignStart="@+id/editTextCourseNumberProfile"
+        android:layout_alignEnd="@+id/textViewSkills" />
+
+    <Button
+        android:id="@+id/btn_setCourseNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Course num"
+        android:layout_alignBottom="@+id/editTextCourseNumberProfile"
+        android:layout_toEndOf="@+id/editTextCourseNumberProfile" />
+
+    <EditText
+        android:id="@+id/editTextSectionNumberProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btn_setSectionNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/textGroup"
-        android:text="Leave Group" />
+        android:text="Update Section num" />
 
 </RelativeLayout>
 
