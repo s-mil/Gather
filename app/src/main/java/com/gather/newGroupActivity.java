@@ -1,5 +1,6 @@
 package com.gather;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ButtonBarLayout;
@@ -40,8 +41,8 @@ public class newGroupActivity extends AppCompatActivity {
         final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
-//        courseNum = (TextView) findViewById(R.id.textCourseNum);
-//        secNum = (TextView) findViewById(R.id.textSecNum);
+        courseNum = (TextView) findViewById(R.id.textCourseNum);
+        secNum = (TextView) findViewById(R.id.textSecNum);
 
         Toast.makeText(newGroupActivity.this, "You can change your course and section numbers under MyProfile.", Toast.LENGTH_SHORT).show();
 
@@ -159,6 +160,12 @@ public class newGroupActivity extends AppCompatActivity {
         return out;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(newGroupActivity.this, MainActivity.class));
+        finish();
+    }
     public void changeData(int val, String str) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid()).child(str);
         ref.setValue(val);
