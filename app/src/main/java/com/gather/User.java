@@ -20,10 +20,12 @@ public class User {
     public int CourseNum = 0;
     public int SectionNum= 0;
     public int inGroup = 0;
+    public String groupName = "group2";
+    public String displayName = "Anonymous";
     User(){
 
     }
-    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl, int CourseNum, int SectionNum, int inGroup){
+    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl, int CourseNum, int SectionNum, int inGroup, String groupName, String displayName){
         this.ArtLevel = Artlvl;
         this.DesignLevel = Designlvl;
         this.LeadershipLevel = Leadershiplvl;
@@ -40,6 +42,8 @@ public class User {
         this.CourseNum = CourseNum;
         this.SectionNum = SectionNum;
         this.inGroup = inGroup;
+        this.groupName = groupName;
+        this.displayName = displayName;
     }
     public ArrayList getLevels() {
         ArrayList<Integer> list = new ArrayList<>();
@@ -63,5 +67,11 @@ public class User {
         if (inGroup == 0)
             return false;
         return true;
+    }
+    public String getGroupName() {
+        return groupName;
+    }
+    public String getdisplayName() {
+        return displayName;
     }
 }

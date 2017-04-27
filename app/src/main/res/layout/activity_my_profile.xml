@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,257 +9,80 @@
     tools:layout_editor_absoluteX="0dp">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Display Name"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textMyProfile"
+        android:layout_toStartOf="@+id/textMyProfile" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
+    <EditText
+        android:id="@+id/editTextDisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_ChangeDisplayName"
+        android:layout_alignParentStart="true"
+        android:ems="10"
+        android:inputType="textPersonName" />
 
-            <TextView
-                android:id="@+id/mySkills"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignStart="@+id/textWindows"
-                android:layout_column="0"
-                android:layout_row="0"
-                android:text="My Skills"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                android:textSize="20sp" />
+    <Button
+        android:id="@+id/btn_ChangeDisplayName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change"
+        android:layout_below="@+id/textView9"
+        android:layout_alignParentEnd="true" />
 
-            <TextView
-                android:id="@+id/textArt"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignEnd="@+id/textCPP"
-                android:layout_below="@+id/mySkills"
-                android:layout_column="0"
-                android:layout_marginTop="15dp"
-                android:layout_row="1"
-                android:text="Art:"
-                android:textSize="20sp" />
+    <TextView
+        android:id="@+id/textMyProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_column="0"
+        android:layout_row="0"
+        android:text="My Profile"
+        android:textSize="30sp" />
 
-            <Spinner
-                android:id="@+id/spinner_Art"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
+    <TextView
+        android:id="@+id/textViewSkills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="View My Skills"
+        android:textSize="20sp"
+        android:layout_below="@+id/editTextDisplayName"
+        android:layout_alignParentStart="true" />
 
-            <TextView
-                android:id="@+id/textDesign"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignStart="@+id/mySkills"
-                android:layout_below="@+id/textArt"
-                android:layout_column="0"
-                android:layout_row="2"
-                android:text="Design:"
-                android:textSize="20sp" />
+    <Button
+        android:id="@+id/btn_ViewSkills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textViewSkills"
+        android:layout_alignBottom="@+id/textViewSkills"
+        android:layout_alignParentEnd="true"
+        android:text="Skills" />
 
-            <Spinner
-                android:id="@+id/spinner_Design"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
+    <TextView
+        android:id="@+id/textGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/btn_ViewSkills"
+        android:layout_marginTop="14dp"
+        android:text="My Group"
+        android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/textLeadership"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignStart="@+id/textDesign"
-                android:layout_below="@+id/textDesign"
-                android:layout_column="0"
-                android:layout_row="3"
-                android:text="Leadership:"
-                android:textSize="20sp" />
+    <Button
+        android:id="@+id/btn_leaveGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/textGroup"
+        android:text="Leave Group" />
 
-            <Spinner
-                android:id="@+id/spinner_Leadership"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textPython"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignStart="@+id/textJava"
-                android:layout_below="@+id/btn_changeDesign"
-                android:layout_column="0"
-                android:layout_row="5"
-                android:text="Python:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_Python"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textOSX"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textAndroid"
-                android:layout_alignStart="@+id/textAndroid"
-                android:layout_column="0"
-                android:layout_marginBottom="13dp"
-                android:layout_row="10"
-                android:text="OSX:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_OSX"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textAndroid"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textIOS"
-                android:layout_alignStart="@+id/textIOS"
-                android:layout_column="0"
-                android:layout_marginBottom="12dp"
-                android:layout_row="11"
-                android:text="Android:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_Android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textCPP"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textWindows"
-                android:layout_alignParentStart="true"
-                android:layout_column="0"
-                android:layout_marginBottom="11dp"
-                android:layout_row="7"
-                android:text="C++:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_CPP"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textHTML"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignStart="@+id/textIOS"
-                android:layout_column="0"
-                android:layout_marginBottom="25dp"
-                android:layout_row="13"
-                android:text="HTML:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_HTML"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textWindows"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textLinux"
-                android:layout_alignStart="@+id/textLinux"
-                android:layout_column="0"
-                android:layout_marginBottom="11dp"
-                android:layout_row="8"
-                android:text="Windows:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_Windows"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textIOS"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textHTML"
-                android:layout_alignEnd="@+id/textCPP"
-                android:layout_column="0"
-                android:layout_marginBottom="11dp"
-                android:layout_row="12"
-                android:text="IOS:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_IOS"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textJava"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_alignStart="@+id/textLeadership"
-                android:layout_below="@+id/textLeadership"
-                android:layout_column="0"
-                android:layout_row="4"
-                android:text="Java:"
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_Java"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textCSharp"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_column="0"
-                android:layout_row="6"
-                android:text="C#: "
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_CSharp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-            <TextView
-                android:id="@+id/textLinux"
-                android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:layout_above="@+id/textOSX"
-                android:layout_alignStart="@+id/textOSX"
-                android:layout_column="0"
-                android:layout_marginBottom="11dp"
-                android:layout_row="9"
-                android:text="Linux: "
-                android:textSize="20sp" />
-
-            <Spinner
-                android:id="@+id/spinner_Linux"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:entries="@array/spinnervalues" />
-
-        </LinearLayout>
-    </ScrollView>
-
-</GridLayout>
+</RelativeLayout>
 
