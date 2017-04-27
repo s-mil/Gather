@@ -39,19 +39,16 @@ public class newGroupActivity extends AppCompatActivity {
         secNum = (EditText) findViewById(R.id.editTextSectionNumber);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
 
-        String initalCourseNum = courseNum.getText().toString();
-        if (initalCourseNum.equals(""))
-            initalCourseNum="0";
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (courseNum.getText().toString()=="0" || secNum.getText().toString()=="0" && groupSize.getText().toString()=="0") {
-                    Toast.makeText(newGroupActivity.this, "Please enter all values.", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                try {
                     int course = Integer.parseInt(courseNum.getText().toString());
                     int sec = Integer.parseInt(secNum.getText().toString());
                     int size = Integer.parseInt(groupSize.getText().toString());
+                }
+                catch (NumberFormatException e) {
+                    Toast.makeText(newGroupActivity.this, "Make sure all fields have a value.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
