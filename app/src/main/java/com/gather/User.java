@@ -69,6 +69,10 @@ public class User {
             return false;
         return true;
     }
+
+    public int getSum(){
+        return ArtLevel+DesignLevel+LeadershipLevel+LinuxLevel+JavaLevel+PythonLevel+CSharpLevel+WindowsLevel+OSXLevel+AndroidLevel+IOSLevel+CPPLevel+HTMLLevel;
+    }
 //    public int getCourse() {
 //        return CourseNum;
 //    }

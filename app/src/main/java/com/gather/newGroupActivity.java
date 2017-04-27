@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.Random;
 
+import static com.gather.R.id.editTextGroupSize;
+
 public class newGroupActivity extends AppCompatActivity {
     FirebaseAuth auth = FirebaseAuth.getInstance();
     User me = new User();
@@ -37,7 +39,7 @@ public class newGroupActivity extends AppCompatActivity {
         final TextView courseNum, secNum;
         final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
-        groupSize = (EditText) findViewById(R.id.editTextGroupSize);
+        groupSize = (EditText) findViewById(editTextGroupSize);
         courseNum = (TextView) findViewById(R.id.textCourseNum);
         secNum = (TextView) findViewById(R.id.textSecNum);
 
@@ -152,4 +154,46 @@ public class newGroupActivity extends AppCompatActivity {
         String groupKey = key.toString();
         return groupKey;
     }
+
+    public ArrayList<User> groupSort(){
+        int size = Integer.parseInt(btnCreateGroup.getText().toString());
+        ArrayList<User> use1 = new ArrayList<>(userList);
+        use1.remove(me);
+        for(User child:use1){
+            if(child.inGroup()){
+                use1.remove(child);
+            }
+
+        }
+
+        for(User child:use1){
+            ArrayList<Integer> compare =me.getLevels();
+            ArrayList<Integer> to = child.getLevels();
+           int index=-1;
+            for(Integer num: compare){
+                index++;
+                if(num-to.get(index)>4||num-to.get(index)<-4){
+                    use1.remove(child);
+                }
+            }
+        }
+
+        ArrayList<User> group = new ArrayList<>();
+        group.add(me);
+        int index=0;
+        for (int i =size; i>1;i--){
+            if(use1.get(index).equals(null)){
+                Toast.makeText(newGroupActivity.this, "Not enough users to make a complete group!",Toast.LENGTH_LONG).show();
+                return group;
+            }
+            group.add(use1.get(index++));
+
+        }
+
+
+
+        return group;
+    }
+
+
 }
