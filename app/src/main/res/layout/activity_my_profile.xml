@@ -95,7 +95,7 @@
         android:layout_alignParentEnd="true" />
 
     <EditText
-        android:id="@+id/editTextCourseNumberProfile"
+        android:id="@+id/editTextCourseNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/textGroup"
@@ -112,7 +112,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:layout_marginBottom="12dp"
         android:layout_above="@+id/btn_setSectionNum"
-        android:layout_alignStart="@+id/editTextCourseNumberProfile"
+        android:layout_alignStart="@+id/editTextCourseNumber"
         android:layout_alignEnd="@+id/textViewSkills" />
 
     <Button
@@ -120,11 +120,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Course num"
-        android:layout_alignBottom="@+id/editTextCourseNumberProfile"
-        android:layout_toEndOf="@+id/editTextCourseNumberProfile" />
+        android:layout_alignBottom="@+id/editTextCourseNumber"
+        android:layout_toEndOf="@+id/editTextCourseNumber" />
 
     <EditText
-        android:id="@+id/editTextSectionNumberProfile"
+        android:id="@+id/editTextSectionNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
