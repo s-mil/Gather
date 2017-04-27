@@ -6,6 +6,7 @@ import android.support.v7.widget.ButtonBarLayout;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -35,14 +36,21 @@ public class newGroupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_group);
 
+        final TextView courseNum, secNum;
         final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
+        courseNum = (TextView) findViewById(R.id.textCourseNum);
+        secNum = (TextView) findViewById(R.id.textSecNum);
+
+        Toast.makeText(newGroupActivity.this, "You can change your course and section numbers under MyProfile.", Toast.LENGTH_SHORT).show();
 
         userInfo.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 usr = dataSnapshot.getValue(User.class);
+//                courseNum.setText(usr.getCourseNum);
+//                secNum.setText(usr.getSecNum);
             }
 
             @Override
