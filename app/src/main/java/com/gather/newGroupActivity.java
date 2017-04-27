@@ -92,6 +92,7 @@ public class newGroupActivity extends AppCompatActivity {
         ArrayList<User> out = new ArrayList<>();
         for(Integer child: ArtLevel){
             index++;
+            //not jank at all
             User use1 = new User(ArtLevel.get(index).intValue(),DesignLevel.get(index).intValue(),LeadershipLevel.get(index).intValue(),JavaLevel.get(index).intValue(),PythonLevel.get(index).intValue(),CSharpLevel.get(index).intValue(),WindowsLevel.get(index).intValue(),LinuxLevel.get(index).intValue(),OSXLevel.get(index).intValue(),AndroidLevel.get(index).intValue(),IOSLevel.get(index).intValue(),CPPLevel.get(index).intValue(),HTMLLevel.get(index).intValue(),0,0,inGroup.get(index).intValue(),groupName.get(index).toString(),displayName.get(index).toString());
             out.add(use1);
         }
