@@ -20,7 +20,7 @@ public class User {
     public int CourseNum = 0;
     public int SectionNum= 0;
     public int inGroup = 0;
-    public String groupName = "group2";
+    public String groupName = "General";
     public String displayName = "Anonymous";
     User(){
 
