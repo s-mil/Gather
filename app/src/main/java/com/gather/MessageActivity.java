@@ -75,8 +75,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                     Message.class,
                     R.layout.row_group,
                     ChatViewHolder.class,
-                    mDatabaseReference.child("Groups").
-                            child(group)
+                    mDatabaseReference.child("Groups").child(group)
             ) {
                 @Override
                 protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
