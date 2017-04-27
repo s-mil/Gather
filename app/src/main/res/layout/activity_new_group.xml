@@ -15,4 +15,44 @@
         android:textSize="30sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editTextCourseNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textCreateGroup"
+        android:layout_marginTop="27dp"
+        android:ems="10"
+        android:hint="Enter Course Number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextSectionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editTextCourseNumber"
+        android:ems="10"
+        android:hint="Enter Section Number"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/editTextGroupSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Group Size"
+        android:inputType="number"
+        android:layout_below="@+id/editTextSectionNumber"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btn_createNewGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextGroupSize"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="74dp"
+        android:text="Create Group" />
 </RelativeLayout>

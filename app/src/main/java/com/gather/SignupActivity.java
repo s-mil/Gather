@@ -111,8 +111,8 @@ public class SignupActivity extends AppCompatActivity {
     }
     private void createUser(FirebaseUser firebase_user){
         if(auth.getCurrentUser().getUid() !=  null){
-            User user = new User(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"group2", "Anonymous");
             String uid = auth.getCurrentUser().getUid();
+            User user = new User(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"group2", "Anonymous",uid);
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
             DatabaseReference create_user = ref.child("users").child(firebase_user.getUid());
             create_user.setValue(user);

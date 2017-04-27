@@ -2,6 +2,11 @@ package com.gather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ButtonBarLayout;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -21,10 +26,36 @@ public class newGroupActivity extends AppCompatActivity {
     DatabaseReference userInfo = ref.child("users");
     User item = new User();
     ArrayList<User> list = new ArrayList<>();
+
+    private Button btnCreateGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_group);
+
+        final EditText courseNum, secNum, groupSize;
+        btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
+        courseNum = (EditText) findViewById(R.id.editTextCourseNumber);
+        secNum = (EditText) findViewById(R.id.editTextSectionNumber);
+        groupSize = (EditText) findViewById(R.id.editTextGroupSize);
+
+        String initalCourseNum = courseNum.getText().toString();
+        if (initalCourseNum.equals(""))
+            initalCourseNum="0";
+        btnCreateGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (courseNum.getText().toString()=="0" || secNum.getText().toString()=="0" && groupSize.getText().toString()=="0") {
+                    Toast.makeText(newGroupActivity.this, "Please enter all values.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    int course = Integer.parseInt(courseNum.getText().toString());
+                    int sec = Integer.parseInt(secNum.getText().toString());
+                    int size = Integer.parseInt(groupSize.getText().toString());
+                }
+            }
+        });
+
         //Get datasnapshot at your "users" root node
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
         ref.addListenerForSingleValueEvent(
@@ -32,7 +63,6 @@ public class newGroupActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
-                        ArrayList<User> userIn = collectUsers((Map<String,Object>) dataSnapshot.getValue());
                     }
 
                     @Override
@@ -59,12 +89,14 @@ public class newGroupActivity extends AppCompatActivity {
         ArrayList<Integer> inGroup = new ArrayList<>();
         ArrayList<String> groupName = new ArrayList<>();
         ArrayList<String> displayName = new ArrayList<>();
+        ArrayList<String> uid = new ArrayList<>();
 
         //iterate through each user, ignoring their UID
         for (Map.Entry<String, Object> entry : users.entrySet()){
             //Get user map
             Map singleUser = (Map) entry.getValue();
             //Get Art Level field and append to list
+
             ArtLevel.add((Integer) singleUser.get("ArtLevel"));
             DesignLevel.add((Integer) singleUser.get("DesignLevel"));
             LeadershipLevel.add((Integer) singleUser.get("LeadershipLevel"));
@@ -81,13 +113,14 @@ public class newGroupActivity extends AppCompatActivity {
             inGroup.add((Integer) singleUser.get("inGroup"));
             groupName.add((String) singleUser.get("groupName"));
             displayName.add((String) singleUser.get("displayName"));
+            uid.add((String) singleUser.get("uid"));
         }
         int index = -1;
         ArrayList<User> out = new ArrayList<>();
         for(Integer child: ArtLevel){
             index++;
             //not jank at all
-            User use1 = new User(ArtLevel.get(index).intValue(),DesignLevel.get(index).intValue(),LeadershipLevel.get(index).intValue(),JavaLevel.get(index).intValue(),PythonLevel.get(index).intValue(),CSharpLevel.get(index).intValue(),WindowsLevel.get(index).intValue(),LinuxLevel.get(index).intValue(),OSXLevel.get(index).intValue(),AndroidLevel.get(index).intValue(),IOSLevel.get(index).intValue(),CPPLevel.get(index).intValue(),HTMLLevel.get(index).intValue(),0,0,inGroup.get(index).intValue(),groupName.get(index).toString(),displayName.get(index).toString());
+            User use1 = new User(ArtLevel.get(index).intValue(),DesignLevel.get(index).intValue(),LeadershipLevel.get(index).intValue(),JavaLevel.get(index).intValue(),PythonLevel.get(index).intValue(),CSharpLevel.get(index).intValue(),WindowsLevel.get(index).intValue(),LinuxLevel.get(index).intValue(),OSXLevel.get(index).intValue(),AndroidLevel.get(index).intValue(),IOSLevel.get(index).intValue(),CPPLevel.get(index).intValue(),HTMLLevel.get(index).intValue(),0,0,inGroup.get(index).intValue(),groupName.get(index).toString(),displayName.get(index).toString(),uid.get(index).toString());
             out.add(use1);
         }
         return out;

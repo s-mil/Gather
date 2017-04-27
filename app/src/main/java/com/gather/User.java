@@ -22,10 +22,11 @@ public class User {
     public int inGroup = 0;
     public String groupName = "General";
     public String displayName = "Anonymous";
+    public String uid = "uid";
     User(){
 
     }
-    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl, int CourseNum, int SectionNum, int inGroup, String groupName, String displayName){
+    User(int Artlvl, int Designlvl, int Leadershiplvl, int Javalvl, int Pythonlvl, int CSharplvl, int Windowslvl, int Linuxlvl, int OSXlvl, int Androidlvl, int IOSlvl, int CPPlvl, int HTMPlvl, int CourseNum, int SectionNum, int inGroup, String groupName, String displayName, String uid){
         this.ArtLevel = Artlvl;
         this.DesignLevel = Designlvl;
         this.LeadershipLevel = Leadershiplvl;
@@ -44,6 +45,7 @@ public class User {
         this.inGroup = inGroup;
         this.groupName = groupName;
         this.displayName = displayName;
+        this.uid = uid;
     }
     public ArrayList getLevels() {
         ArrayList<Integer> list = new ArrayList<>();

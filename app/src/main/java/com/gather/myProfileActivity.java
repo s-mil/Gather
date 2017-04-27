@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class myProfileActivity extends AppCompatActivity {
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     private Button btnChangeDisplayName, btnSkills, btnLeaveGroup;
+    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +46,7 @@ public class myProfileActivity extends AppCompatActivity {
         userInfo.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                User user = dataSnapshot.getValue(User.class);
+                user = dataSnapshot.getValue(User.class);
                 displayName.setHint(user.getdisplayName());
                 myGroup.setText("My Group " + user.getGroupName());
             }
@@ -72,7 +73,8 @@ public class myProfileActivity extends AppCompatActivity {
         btnLeaveGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(myProfileActivity.this, "You leave the group when I say you leave the group. Bitch.", Toast.LENGTH_SHORT).show();
+                changeData("General","groupName");
+                Toast.makeText(myProfileActivity.this, "You have left your group.", Toast.LENGTH_SHORT).show();
             }
         });
     }
