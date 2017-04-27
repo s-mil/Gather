@@ -121,6 +121,7 @@ public class newGroupActivity extends AppCompatActivity {
         if (groupSize>0) {
             String groupKey = makeGroupKey();
             for (User usr:user) {
+
                 changeGroup(groupKey,usr.getUid());
             }
             return true;

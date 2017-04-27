@@ -26,6 +26,7 @@ import java.util.Map;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -47,6 +48,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         btnSend = (Button) findViewById(R.id.btn_send_message);
         btnSend.setOnClickListener(this);
 
+        FirebaseMessaging.getInstance().subscribeToTopic("/topics/General");
         edtMessage = (EditText) findViewById(R.id.edit_message);
         rvMessage = (RecyclerView) findViewById(R.id.recycler_view_chat);
         rvMessage.setHasFixedSize(true);
