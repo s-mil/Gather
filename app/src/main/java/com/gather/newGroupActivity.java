@@ -29,15 +29,14 @@ public class newGroupActivity extends AppCompatActivity {
     User usr;
 
     private Button btnCreateGroup;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_group);
 
-        final EditText courseNum, secNum, groupSize;
+        final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
-        courseNum = (EditText) findViewById(R.id.editTextCourseNumber);
-        secNum = (EditText) findViewById(R.id.editTextSectionNumber);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
 
         userInfo.addValueEventListener(new ValueEventListener() {
@@ -45,6 +44,7 @@ public class newGroupActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 usr = dataSnapshot.getValue(User.class);
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
@@ -53,16 +53,7 @@ public class newGroupActivity extends AppCompatActivity {
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    int course = Integer.parseInt(courseNum.getText().toString());
-                    changeData(course, "CourseNum");
-                    int sec = Integer.parseInt(secNum.getText().toString());
-                    changeData(sec, "SectionNum");
-                    int size = Integer.parseInt(groupSize.getText().toString());
-                }
-                catch (NumberFormatException e) {
-                    Toast.makeText(newGroupActivity.this, "Make sure all fields have a value.", Toast.LENGTH_SHORT).show();
-                }
+                int size = Integer.parseInt(groupSize.getText().toString());
             }
         });
 
@@ -81,7 +72,8 @@ public class newGroupActivity extends AppCompatActivity {
                     }
                 });
     }
-    private ArrayList<User> collectUsers(Map<String,Object> users) {
+
+    private ArrayList<User> collectUsers(Map<String, Object> users) {
         //initialize an array list for each data used in User class
         ArrayList<Integer> ArtLevel = new ArrayList<>();
         ArrayList<Integer> DesignLevel = new ArrayList<>();
@@ -102,7 +94,7 @@ public class newGroupActivity extends AppCompatActivity {
         ArrayList<String> uid = new ArrayList<>();
 
         //iterate through each user, ignoring their UID
-        for (Map.Entry<String, Object> entry : users.entrySet()){
+        for (Map.Entry<String, Object> entry : users.entrySet()) {
             //Get user map
             Map singleUser = (Map) entry.getValue();
             //Get Art Level field and append to list
@@ -127,15 +119,17 @@ public class newGroupActivity extends AppCompatActivity {
         }
         int index = -1;
         ArrayList<User> out = new ArrayList<>();
-        for(Integer child: ArtLevel){
+        for (Integer child : ArtLevel) {
             index++;
             //not jank at all
-            User use1 = new User(ArtLevel.get(index).intValue(),DesignLevel.get(index).intValue(),LeadershipLevel.get(index).intValue(),JavaLevel.get(index).intValue(),PythonLevel.get(index).intValue(),CSharpLevel.get(index).intValue(),WindowsLevel.get(index).intValue(),LinuxLevel.get(index).intValue(),OSXLevel.get(index).intValue(),AndroidLevel.get(index).intValue(),IOSLevel.get(index).intValue(),CPPLevel.get(index).intValue(),HTMLLevel.get(index).intValue(),0,0,inGroup.get(index).intValue(),groupName.get(index).toString(),displayName.get(index).toString(),uid.get(index).toString());
+            User use1 = new User(ArtLevel.get(index).intValue(), DesignLevel.get(index).intValue(), LeadershipLevel.get(index).intValue(), JavaLevel.get(index).intValue(), PythonLevel.get(index).intValue(), CSharpLevel.get(index).intValue(), WindowsLevel.get(index).intValue(), LinuxLevel.get(index).intValue(), OSXLevel.get(index).intValue(), AndroidLevel.get(index).intValue(), IOSLevel.get(index).intValue(), CPPLevel.get(index).intValue(), HTMLLevel.get(index).intValue(), 0, 0, inGroup.get(index).intValue(), groupName.get(index).toString(), displayName.get(index).toString(), uid.get(index).toString());
             out.add(use1);
         }
         return out;
     }
-    public void changeData (int val, String str) {
+
+    public void changeData(int val, String str) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid()).child(str);
         ref.setValue(val);
+    }
 }

@@ -34,8 +34,8 @@ public class myProfileActivity extends AppCompatActivity {
         final TextView myGroup;
         final EditText displayName,courseNum,secNum;
         displayName = (EditText) findViewById(R.id.editTextDisplayName);
-        courseNum = (EditText) findViewById(R.id.editTextCourseNumberProfile);
-        secNum = (EditText) findViewById(R.id.editTextSectionNumberProfile);
+        courseNum = (EditText) findViewById(R.id.editTextCourseNumber);
+        secNum = (EditText) findViewById(R.id.editTextSectionNumber);
         myGroup = (TextView) findViewById(R.id.textGroup);
         btnChangeDisplayName = (Button) findViewById(R.id.btn_ChangeDisplayName);
         btnSkills = (Button) findViewById(R.id.btn_ViewSkills);
@@ -52,8 +52,8 @@ public class myProfileActivity extends AppCompatActivity {
                 user = dataSnapshot.getValue(User.class);
                 displayName.setHint(user.getdisplayName());
                 myGroup.setText("My Group " + user.getGroupName());
-                courseNum.setHint(user.getCourseNum());
-                secNum.setHint(user.getSectionNum());
+//                courseNum.setHint(user.getCourseNum());
+//                secNum.setHint(user.getSectionNum());
             }
 
             @Override
@@ -85,15 +85,23 @@ public class myProfileActivity extends AppCompatActivity {
         btnSetCourseNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int val = Integer.parseInt(courseNum.getText().toString());
-                changeData(val,"CourseNum");
+                try {
+                    int val = Integer.parseInt(courseNum.getText().toString());
+                    changeData(val, "CourseNum");
+                }catch (NumberFormatException e) {
+                    Toast.makeText(myProfileActivity.this, "Course Number is Empty.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         btnSetSectionNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int val = Integer.parseInt(secNum.getText().toString());
-                changeData(val, "SectionNum");
+                try {
+                    int val = Integer.parseInt(secNum.getText().toString());
+                    changeData(val, "SectionNum");
+                }catch (NumberFormatException e) {
+                    Toast.makeText(myProfileActivity.this, "Section Number is Empty.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
