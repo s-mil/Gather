@@ -40,8 +40,8 @@ public class newGroupActivity extends AppCompatActivity {
         final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
-        courseNum = (TextView) findViewById(R.id.textCourseNum);
-        secNum = (TextView) findViewById(R.id.textSecNum);
+//        courseNum = (TextView) findViewById(R.id.textCourseNum);
+//        secNum = (TextView) findViewById(R.id.textSecNum);
 
         Toast.makeText(newGroupActivity.this, "You can change your course and section numbers under MyProfile.", Toast.LENGTH_SHORT).show();
 
@@ -96,6 +96,8 @@ public class newGroupActivity extends AppCompatActivity {
         ArrayList<Integer> IOSLevel = new ArrayList<>();
         ArrayList<Integer> CPPLevel = new ArrayList<>();
         ArrayList<Integer> HTMLLevel = new ArrayList<>();
+        ArrayList<Integer> CourseNum = new ArrayList<>();
+        ArrayList<Integer> SectionNum = new ArrayList<>();
         ArrayList<Integer> inGroup = new ArrayList<>();
         ArrayList<String> groupName = new ArrayList<>();
         ArrayList<String> displayName = new ArrayList<>();
@@ -106,7 +108,7 @@ public class newGroupActivity extends AppCompatActivity {
             //Get user map
             Map singleUser = (Map) entry.getValue();
             //Get Art Level field and append to list
-
+            //Rinse and repeat for other values
             ArtLevel.add((Integer) singleUser.get("ArtLevel"));
             DesignLevel.add((Integer) singleUser.get("DesignLevel"));
             LeadershipLevel.add((Integer) singleUser.get("LeadershipLevel"));
@@ -120,6 +122,8 @@ public class newGroupActivity extends AppCompatActivity {
             IOSLevel.add((Integer) singleUser.get("IOSLevel"));
             CPPLevel.add((Integer) singleUser.get("CPPLevel"));
             HTMLLevel.add((Integer) singleUser.get("HTMLLevel"));
+            CourseNum.add((Integer) singleUser.get("CourseNum"));
+            SectionNum.add((Integer) singleUser.get("SectionNum"));
             inGroup.add((Integer) singleUser.get("inGroup"));
             groupName.add((String) singleUser.get("groupName"));
             displayName.add((String) singleUser.get("displayName"));
@@ -127,10 +131,29 @@ public class newGroupActivity extends AppCompatActivity {
         }
         int index = -1;
         ArrayList<User> out = new ArrayList<>();
-        for (Integer child : ArtLevel) {
+        for (String child : uid) {
             index++;
-            //not jank at all
-            User use1 = new User(ArtLevel.get(index).intValue(), DesignLevel.get(index).intValue(), LeadershipLevel.get(index).intValue(), JavaLevel.get(index).intValue(), PythonLevel.get(index).intValue(), CSharpLevel.get(index).intValue(), WindowsLevel.get(index).intValue(), LinuxLevel.get(index).intValue(), OSXLevel.get(index).intValue(), AndroidLevel.get(index).intValue(), IOSLevel.get(index).intValue(), CPPLevel.get(index).intValue(), HTMLLevel.get(index).intValue(), 0, 0, inGroup.get(index).intValue(), groupName.get(index).toString(), displayName.get(index).toString(), uid.get(index).toString());
+            //the longest line
+            User use1 = new User(
+                    ArtLevel.get(index).intValue(),
+                    DesignLevel.get(index).intValue(),
+                    LeadershipLevel.get(index).intValue(),
+                    JavaLevel.get(index).intValue(),
+                    PythonLevel.get(index).intValue(),
+                    CSharpLevel.get(index).intValue(),
+                    WindowsLevel.get(index).intValue(),
+                    LinuxLevel.get(index).intValue(),
+                    OSXLevel.get(index).intValue(),
+                    AndroidLevel.get(index).intValue(),
+                    IOSLevel.get(index).intValue(),
+                    CPPLevel.get(index).intValue(),
+                    HTMLLevel.get(index).intValue(),
+                    CourseNum.get(index).intValue(),
+                    SectionNum.get(index).intValue(),
+                    inGroup.get(index).intValue(),
+                    groupName.get(index).toString(),
+                    displayName.get(index).toString(),
+                    child.toString());
             out.add(use1);
         }
         return out;
