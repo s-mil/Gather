@@ -33,13 +33,14 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnSend;
     private EditText edtMessage;
     private RecyclerView rvMessage;
-//    String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-//    private AppPreference mAppPreference;
+    //    String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+    private String name;
+
+    //    private AppPreference mAppPreference;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
     final FirebaseAuth auth = FirebaseAuth.getInstance();
-    String name,group;
-    User usr;
+
     private FirebaseRecyclerAdapter<Message, ChatViewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,36 +56,36 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         rvMessage.setLayoutManager(new LinearLayoutManager(this));
 
 //        mAppPreference = new AppPreference(this);
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mFirebaseDatabase.getReference();
+
         String uid = auth.getCurrentUser().getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference userinfo = ref.child("users").child(uid);
-        userinfo.addValueEventListener(new ValueEventListener() {
+        DatabaseReference userInfo = mDatabaseReference.child("users").child(uid);
+        userInfo.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                usr=dataSnapshot.getValue(User.class);
-                name=usr.getdisplayName();
-                group=usr.getGroupName();
+                User user = dataSnapshot.getValue(User.class);
+                name = user.getdisplayName();
             }
+
             @Override
             public void onCancelled(DatabaseError databaseError) {
+
             }
         });
-
-        if (usr!=null) {
-            adapter = new FirebaseRecyclerAdapter<Message, ChatViewHolder>(
-                    Message.class,
-                    R.layout.row_group,
-                    ChatViewHolder.class,
-                    mDatabaseReference.child("Groups").child(group)
-            ) {
-                @Override
-                protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
-                    viewHolder.tvMessage.setText(model.message);
-                    viewHolder.tvEmail.setText(model.sender);
-                }
-            };
-            rvMessage.setAdapter(adapter);
-        }
+        adapter = new FirebaseRecyclerAdapter<Message, ChatViewHolder>(
+                Message.class,
+                R.layout.row_group,
+                ChatViewHolder.class,
+                mDatabaseReference.child("Groups").child("group4")
+        ) {
+            @Override
+            protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
+                viewHolder.tvMessage.setText(model.message);
+                viewHolder.tvEmail.setText(model.sender);
+            }
+        };
+        rvMessage.setAdapter(adapter);
     }
 
     @Override
@@ -96,12 +97,12 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                 param.put("sender", name);
                 param.put("message", message);
 
-                mDatabaseReference.child("Groups").child(group)
+                mDatabaseReference.child("Groups").child("group4")
                         .push()
                         .setValue(param)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
-                          public void onComplete(@NonNull Task<Void> task) {
+                            public void onComplete(@NonNull Task<Void> task) {
                                 edtMessage.setText("");
                                 if(task.isSuccessful()){
                                     Log.d("SendMessage", "Success");
