@@ -119,9 +119,9 @@
         android:id="@+id/btn_setCourseNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Course num"
+        android:text="Update Course"
         android:layout_alignBottom="@+id/editTextCourseNumber"
-        android:layout_toEndOf="@+id/editTextCourseNumber" />
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:id="@+id/editTextSectionNumber"
@@ -138,7 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:text="Update Section num" />
+        android:text="Update Section" />
 
 </RelativeLayout>
 
