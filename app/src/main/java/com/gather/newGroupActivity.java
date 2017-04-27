@@ -90,6 +90,7 @@ public class newGroupActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
+                        collectUsers((Map<String,Object>) dataSnapshot.getValue());
                     }
 
                     @Override
