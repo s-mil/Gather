@@ -22,12 +22,12 @@ import java.util.Map;
 
 public class newGroupActivity extends AppCompatActivity {
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-    ArrayList<User> userList = new ArrayList<>();
+//    ArrayList<User> userList = new ArrayList<>();
     FirebaseAuth auth = FirebaseAuth.getInstance();
     String uid = auth.getCurrentUser().getUid();
     DatabaseReference userInfo = ref.child("users").child(uid);
-    User item = new User();
-    ArrayList<User> list = new ArrayList<>();
+//    User item = new User();
+//    ArrayList<User> list = new ArrayList<>();
     User usr;
 
     private Button btnCreateGroup;
