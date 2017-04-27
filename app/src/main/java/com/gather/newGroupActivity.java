@@ -62,7 +62,26 @@ public class newGroupActivity extends AppCompatActivity {
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int size = Integer.parseInt(groupSize.getText().toString());
+                if (usr!=null) {
+                    ArrayList list = usr.getLevels();
+                    int counter=0;
+                    for (int i=0;i<=list.size()-1;i++) {
+                        if (list.get(i).equals(0))
+                            counter++;
+                    }
+                    if (counter==list.size())
+                        Toast.makeText(newGroupActivity.this, "You're horrible. At like, everything. Go change your skill levels under MyProfile.", Toast.LENGTH_SHORT).show();
+                    else {
+                        try {
+                            int size = Integer.parseInt(groupSize.getText().toString());
+                            if (makeNewGroup(Integer.parseInt(groupSize.getText().toString())))
+                                Toast.makeText(newGroupActivity.this, "Your group new group has been created, check it out under MyGroup", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(newGroupActivity.this, "When we said \"Enter a Group Size\" we meant more than 0. Idiot. Go back and do it again.", Toast.LENGTH_SHORT).show();
+                        }
+                        catch (NumberFormatException e) {Toast.makeText(newGroupActivity.this, "Enter a group size.", Toast.LENGTH_SHORT).show();}
+                    }
+                }
             }
         });
 
@@ -160,6 +179,11 @@ public class newGroupActivity extends AppCompatActivity {
         return out;
     }
 
+    public Boolean makeNewGroup(int groupSize) {
+        if (groupSize>0)
+            return true;
+        return false;
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
