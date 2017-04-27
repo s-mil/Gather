@@ -33,8 +33,6 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnSend;
     private EditText edtMessage;
     private RecyclerView rvMessage;
-//    String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-//    private AppPreference mAppPreference;
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     String name,group;
@@ -53,7 +51,6 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         rvMessage.setHasFixedSize(true);
         rvMessage.setLayoutManager(new LinearLayoutManager(this));
 
-//        mAppPreference = new AppPreference(this);
         String uid = auth.getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userinfo = ref.child("users").child(uid);
