@@ -69,6 +69,12 @@ public class User {
             return false;
         return true;
     }
+    public int getCourseNum() {
+        return CourseNum;
+    }
+    public int getSectionNum() {
+        return SectionNum;
+    }
     public String getGroupName() {
         return groupName;
     }

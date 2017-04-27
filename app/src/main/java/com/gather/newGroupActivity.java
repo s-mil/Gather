@@ -23,9 +23,10 @@ public class newGroupActivity extends AppCompatActivity {
     ArrayList<User> userList = new ArrayList<>();
     FirebaseAuth auth = FirebaseAuth.getInstance();
     String uid = auth.getCurrentUser().getUid();
-    DatabaseReference userInfo = ref.child("users");
+    DatabaseReference userInfo = ref.child("users").child(uid);
     User item = new User();
     ArrayList<User> list = new ArrayList<>();
+    User usr;
 
     private Button btnCreateGroup;
     @Override
@@ -39,12 +40,24 @@ public class newGroupActivity extends AppCompatActivity {
         secNum = (EditText) findViewById(R.id.editTextSectionNumber);
         groupSize = (EditText) findViewById(R.id.editTextGroupSize);
 
+        userInfo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                usr = dataSnapshot.getValue(User.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
                     int course = Integer.parseInt(courseNum.getText().toString());
+                    changeData(course, "CourseNum");
                     int sec = Integer.parseInt(secNum.getText().toString());
+                    changeData(sec, "SectionNum");
                     int size = Integer.parseInt(groupSize.getText().toString());
                 }
                 catch (NumberFormatException e) {
@@ -122,4 +135,7 @@ public class newGroupActivity extends AppCompatActivity {
         }
         return out;
     }
+    public void changeData (int val, String str) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid()).child(str);
+        ref.setValue(val);
 }
