@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MessageActivity extends AppCompatActivity implements View.OnClickListener {
@@ -30,11 +33,13 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnSend;
     private EditText edtMessage;
     private RecyclerView rvMessage;
-    String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+//    String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
+    private String name;
 
 //    private AppPreference mAppPreference;
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mDatabaseReference;
+    final FirebaseAuth auth = FirebaseAuth.getInstance();
 
     private FirebaseRecyclerAdapter<Message, ChatViewHolder> adapter;
     @Override
@@ -54,11 +59,25 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mDatabaseReference = mFirebaseDatabase.getReference();
 
+        String uid = auth.getCurrentUser().getUid();
+        DatabaseReference userInfo = mDatabaseReference.child("users").child(uid);
+        userInfo.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                name = user.getdisplayName();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         adapter = new FirebaseRecyclerAdapter<Message, ChatViewHolder>(
                 Message.class,
                 R.layout.row_group,
                 ChatViewHolder.class,
-                mDatabaseReference.child("Groups").child("group3")
+                mDatabaseReference.child("Groups").child("group4")
         ) {
             @Override
             protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
@@ -75,10 +94,10 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             String message = edtMessage.getText().toString().trim();
             if (!TextUtils.isEmpty(message)){
                 Map<String, Object> param = new HashMap<>();
-                param.put("sender", email);
+                param.put("sender", name);
                 param.put("message", message);
 
-                mDatabaseReference.child("Groups").child("group3")
+                mDatabaseReference.child("Groups").child("group4")
                         .push()
                         .setValue(param)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
