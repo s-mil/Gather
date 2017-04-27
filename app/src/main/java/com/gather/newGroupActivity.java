@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -35,7 +36,6 @@ public class newGroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_group);
-
         final TextView courseNum, secNum;
         final EditText groupSize;
         btnCreateGroup = (Button) findViewById(R.id.btn_createNewGroup);
@@ -147,7 +147,7 @@ public class newGroupActivity extends AppCompatActivity {
         String ALPH = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
         StringBuilder key = new StringBuilder();
         Random rnd = new Random();
-        while (key.length() < 28) { // length of the group key.
+        while (key.length() < 29) { // length of the group key.
             int index = (int) (rnd.nextFloat() * ALPH.length());
             key.append(ALPH.charAt(index));
         }

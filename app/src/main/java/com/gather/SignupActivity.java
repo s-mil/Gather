@@ -93,7 +93,7 @@ public class SignupActivity extends AppCompatActivity {
                                 } else {
                                     startActivity(new Intent(SignupActivity.this, MainActivity.class));
                                     createUser(task.getResult().getUser());
-                                    Toast.makeText(SignupActivity.this, "Welcome to Gather.\nHead to MyProfile to get started." + task.getException(),Toast.LENGTH_LONG).show();
+                                    Toast.makeText(SignupActivity.this, "Welcome to Gather.\nHead to MyProfile to get started.",Toast.LENGTH_LONG).show();
                                     finish();
                                 }
                             }
