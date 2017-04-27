@@ -1,5 +1,6 @@
 package com.gather;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,6 +30,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private Button btnSend;
     private EditText edtMessage;
     private RecyclerView rvMessage;
+    String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
 //    private AppPreference mAppPreference;
     private FirebaseDatabase mFirebaseDatabase;
@@ -55,12 +58,12 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                 Message.class,
                 R.layout.row_group,
                 ChatViewHolder.class,
-                mDatabaseReference.child("Groups")
+                mDatabaseReference.child("Groups").child("group3")
         ) {
             @Override
             protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
                 viewHolder.tvMessage.setText(model.message);
-                viewHolder.tvEmail.setText(model.getSender());
+                viewHolder.tvEmail.setText(model.sender);
             }
         };
         rvMessage.setAdapter(adapter);
@@ -72,10 +75,10 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             String message = edtMessage.getText().toString().trim();
             if (!TextUtils.isEmpty(message)){
                 Map<String, Object> param = new HashMap<>();
-                param.put("sender", "ITSME");
+                param.put("sender", email);
                 param.put("message", message);
 
-                mDatabaseReference.child("Groups")
+                mDatabaseReference.child("Groups").child("group3")
                         .push()
                         .setValue(param)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -89,6 +92,8 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                                 }
                             }
                         });
+                if (adapter.getItemCount() > 0)
+                    rvMessage.getLayoutManager().smoothScrollToPosition(rvMessage, null, adapter.getItemCount() - 1);
             }
         }
     }
@@ -104,4 +109,12 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             tvMessage = (TextView) itemView.findViewById(R.id.view_message);
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(MessageActivity.this, MainActivity.class));
+        finish();
+    }
+
 }
