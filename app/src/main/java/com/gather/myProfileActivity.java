@@ -36,7 +36,7 @@ public class myProfileActivity extends AppCompatActivity {
         displayName = (EditText) findViewById(R.id.editTextDisplayName);
         courseNum = (EditText) findViewById(R.id.editTextCourseNumber);
         secNum = (EditText) findViewById(R.id.editTextSectionNumber);
-        myGroup = (TextView) findViewById(R.id.textGroup);
+        myGroup = (TextView) findViewById(R.id.textView5);
         btnChangeDisplayName = (Button) findViewById(R.id.btn_ChangeDisplayName);
         btnSkills = (Button) findViewById(R.id.btn_ViewSkills);
         btnLeaveGroup = (Button) findViewById(R.id.btn_leaveGroup);
@@ -52,8 +52,8 @@ public class myProfileActivity extends AppCompatActivity {
                 User user = dataSnapshot.getValue(User.class);
                 displayName.setHint(user.getdisplayName());
                 myGroup.setText("My Group: " + user.getGroupName());
-//                courseNum.setHint(user.getCourseNum());
-//                secNum.setHint(user.getSectionNum());
+                courseNum.setHint(String.valueOf(user.CourseNum));
+                secNum.setHint(String.valueOf(user.SectionNum));
             }
 
             @Override

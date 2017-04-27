@@ -37,6 +37,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     String name,group;
     User usr;
+    Boolean isReady = false;
     private FirebaseRecyclerAdapter<Message, ChatViewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +61,16 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                 usr=dataSnapshot.getValue(User.class);
                 name=usr.getdisplayName();
                 group=usr.getGroupName();
+                isReady=true;
+                messageView();
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
 
+    public void messageView() {
         if (usr!=null) {
             adapter = new FirebaseRecyclerAdapter<Message, ChatViewHolder>(
                     Message.class,
@@ -85,9 +90,9 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.btn_send_message){
+        if (v.getId() == R.id.btn_send_message) {
             String message = edtMessage.getText().toString().trim();
-            if (!TextUtils.isEmpty(message)){
+            if (!TextUtils.isEmpty(message)) {
                 Map<String, Object> param = new HashMap<>();
                 param.put("sender", name);
                 param.put("message", message);
@@ -97,11 +102,11 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                         .setValue(param)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
-                          public void onComplete(@NonNull Task<Void> task) {
+                            public void onComplete(@NonNull Task<Void> task) {
                                 edtMessage.setText("");
-                                if(task.isSuccessful()){
+                                if (task.isSuccessful()) {
                                     Log.d("SendMessage", "Success");
-                                }else{
+                                } else {
                                     Log.d("SendMessage", "Failed");
                                 }
                             }
@@ -111,24 +116,20 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
     }
-
     public static class ChatViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvEmail, tvMessage;
 
         public ChatViewHolder(View itemView) {
             super(itemView);
-
             tvEmail = (TextView) itemView.findViewById(R.id.tv_sender);
             tvMessage = (TextView) itemView.findViewById(R.id.view_message);
         }
     }
-
 
     @Override
     public void onBackPressed() {
         startActivity(new Intent(MessageActivity.this, MainActivity.class));
         finish();
     }
-
 }
