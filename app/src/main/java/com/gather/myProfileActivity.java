@@ -69,6 +69,12 @@ public class myProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(myProfileActivity.this, mySkillsActivity.class));
             }
         });
+        btnLeaveGroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(myProfileActivity.this, "You leave the group when I say you leave the group. Bitch.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     public void changeData (String val, String str) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(auth.getCurrentUser().getUid()).child(str);
