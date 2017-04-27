@@ -35,9 +35,8 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
     private RecyclerView rvMessage;
 //    String displayName = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
 //    private AppPreference mAppPreference;
-    private FirebaseDatabase mFirebaseDatabase;
-    private DatabaseReference mDatabaseReference;
     final FirebaseAuth auth = FirebaseAuth.getInstance();
+    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
     String name,group;
     User usr;
     private FirebaseRecyclerAdapter<Message, ChatViewHolder> adapter;
@@ -75,7 +74,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                     Message.class,
                     R.layout.row_group,
                     ChatViewHolder.class,
-                    mDatabaseReference.child("Groups").child(group)
+                    ref.child("Groups").child(group)
             ) {
                 @Override
                 protected void populateViewHolder(ChatViewHolder viewHolder, Message model, int position) {
@@ -96,7 +95,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                 param.put("sender", name);
                 param.put("message", message);
 
-                mDatabaseReference.child("Groups").child(group)
+                ref.child("Groups").child(group)
                         .push()
                         .setValue(param)
                         .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -106,7 +105,7 @@ public class MessageActivity extends AppCompatActivity implements View.OnClickLi
                                 if(task.isSuccessful()){
                                     Log.d("SendMessage", "Success");
                                 }else{
-                                    Log.d("SendMessage", "failed ");
+                                    Log.d("SendMessage", "Failed");
                                 }
                             }
                         });

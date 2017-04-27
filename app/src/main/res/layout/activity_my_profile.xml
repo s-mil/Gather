@@ -108,12 +108,13 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_setSectionNum"
+        android:layout_alignEnd="@+id/textViewSkills"
+        android:layout_alignStart="@+id/editTextCourseNumber"
+        android:layout_marginBottom="12dp"
         android:text="Section Number"
         android:textAppearance="@style/TextAppearance.AppCompat"
-        android:layout_marginBottom="12dp"
-        android:layout_above="@+id/btn_setSectionNum"
-        android:layout_alignStart="@+id/editTextCourseNumber"
-        android:layout_alignEnd="@+id/textViewSkills" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/btn_setCourseNum"

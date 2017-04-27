@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class myProfileActivity extends AppCompatActivity {
     final FirebaseAuth auth = FirebaseAuth.getInstance();
     private Button btnChangeDisplayName, btnSkills, btnLeaveGroup, btnSetCourseNum, btnSetSectionNum;
-    User user;
+//    User user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +46,12 @@ public class myProfileActivity extends AppCompatActivity {
         String uid = auth.getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference userInfo = ref.child("users").child(uid);
-        userInfo.addValueEventListener(new ValueEventListener() {
+        userInfo.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                user = dataSnapshot.getValue(User.class);
+                User user = dataSnapshot.getValue(User.class);
                 displayName.setHint(user.getdisplayName());
-                myGroup.setText("My Group " + user.getGroupName());
+                myGroup.setText("My Group: " + user.getGroupName());
 //                courseNum.setHint(user.getCourseNum());
 //                secNum.setHint(user.getSectionNum());
             }

@@ -23,14 +23,9 @@ import java.util.Map;
 import java.util.Random;
 
 public class newGroupActivity extends AppCompatActivity {
-    DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
-    ArrayList<User> userList2 = new ArrayList<>();
     FirebaseAuth auth = FirebaseAuth.getInstance();
-    String uid = auth.getCurrentUser().getUid();
-    DatabaseReference userInfo = ref.child("users").child(uid);
-//    User item = new User();
+    User me = new User();
     ArrayList<User> userList = new ArrayList<>();
-    User usr;
 
     private Button btnCreateGroup;
 
@@ -48,10 +43,13 @@ public class newGroupActivity extends AppCompatActivity {
 
         Toast.makeText(newGroupActivity.this, "You can change your course and section numbers under MyProfile.", Toast.LENGTH_SHORT).show();
 
+        String id = auth.getCurrentUser().getUid();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference userInfo = ref.child("users").child(id);
         userInfo.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                usr = dataSnapshot.getValue(User.class);
+                me = dataSnapshot.getValue(User.class);
             }
 
             @Override
@@ -63,30 +61,32 @@ public class newGroupActivity extends AppCompatActivity {
         btnCreateGroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (usr!=null) {
-                    ArrayList list = usr.getLevels();
-                    int counter=0;
-                    for (int i=0;i<=list.size()-1;i++) {
+                if (me != null) {
+                    ArrayList list = me.getLevels();
+                    int counter = 0;
+                    for (int i = 0; i <= list.size() - 1; i++) {
                         if (list.get(i).equals(0))
                             counter++;
                     }
-                    if (counter==list.size())
+                    if (counter == list.size())
                         Toast.makeText(newGroupActivity.this, "You're horrible. At like, everything. Go change your skill levels under MyProfile.", Toast.LENGTH_SHORT).show();
                     else {
                         try {
-                            if (makeNewGroup(Integer.parseInt(groupSize.getText().toString()),userList))
+                            if (makeNewGroup(Integer.parseInt(groupSize.getText().toString()), userList))
                                 Toast.makeText(newGroupActivity.this, "Your group new group has been created, check it out under MyGroup", Toast.LENGTH_SHORT).show();
                             else
                                 Toast.makeText(newGroupActivity.this, "When we said \"Enter a Group Size\" we meant more than 0. Idiot. Go back and do it again.", Toast.LENGTH_SHORT).show();
-                        }catch (NumberFormatException e) {Toast.makeText(newGroupActivity.this, "Enter a group size.", Toast.LENGTH_SHORT).show();}
+                        } catch (NumberFormatException e) {
+                            Toast.makeText(newGroupActivity.this, "Enter a group size.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
             }
         });
 
         //Get datasnapshot at your "users" root node
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users");
-        ref.addChildEventListener(new ChildEventListener() {
+        DatabaseReference allUserRef = FirebaseDatabase.getInstance().getReference().child("users");
+        allUserRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 User user_this = dataSnapshot.getValue(User.class);
@@ -113,101 +113,7 @@ public class newGroupActivity extends AppCompatActivity {
 
             }
         });
-//        ref.addListenerForSingleValueEvent(
-//                new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(DataSnapshot dataSnapshot) {
-//                        //Get map of users in datasnapshot
-//                       // (Integer)dataSnapshot;
-//                        User user_this = dataSnapshot.getValue(User.class);
-//                        userList.add(user_this);
-//                        userList.equals(collectUsers((Map<String,Object>) dataSnapshot.getValue()));
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(DatabaseError databaseError) {
-//                        //handle databaseError
-//                    }
-//                });
     }
-
-//    private ArrayList<User> collectUsers(Map<String, Object> users) {
-//        //initialize an array list for each data used in User class
-//        ArrayList<Integer> ArtLevel = new ArrayList<>();
-//        ArrayList<Integer> DesignLevel = new ArrayList<>();
-//        ArrayList<Integer> LeadershipLevel = new ArrayList<>();
-//        ArrayList<Integer> JavaLevel = new ArrayList<>();
-//        ArrayList<Integer> PythonLevel = new ArrayList<>();
-//        ArrayList<Integer> CSharpLevel = new ArrayList<>();
-//        ArrayList<Integer> WindowsLevel = new ArrayList<>();
-//        ArrayList<Integer> LinuxLevel = new ArrayList<>();
-//        ArrayList<Integer> OSXLevel = new ArrayList<>();
-//        ArrayList<Integer> AndroidLevel = new ArrayList<>();
-//        ArrayList<Integer> IOSLevel = new ArrayList<>();
-//        ArrayList<Integer> CPPLevel = new ArrayList<>();
-//        ArrayList<Integer> HTMLLevel = new ArrayList<>();
-//        ArrayList<Integer> CourseNum = new ArrayList<>();
-//        ArrayList<Integer> SectionNum = new ArrayList<>();
-//        ArrayList<Integer> inGroup = new ArrayList<>();
-//        ArrayList<String> groupName = new ArrayList<>();
-//        ArrayList<String> displayName = new ArrayList<>();
-//        ArrayList<String> uid = new ArrayList<>();
-
-        //iterate through each user, ignoring their UID
-//        for (Map.Entry<String, Object> entry : users.entrySet()) {
-//            //Get user map
-//            Map singleUser = (Map) entry.getValue();
-//            //Get Art Level field and append to list
-//            //Rinse and repeat for other values
-//            ArtLevel.add((Integer) singleUser.get("ArtLevel"));
-//            DesignLevel.add((Integer) singleUser.get("DesignLevel"));
-//            LeadershipLevel.add((Integer) singleUser.get("LeadershipLevel"));
-//            JavaLevel.add((Integer) singleUser.get("JavaLevel"));
-//            PythonLevel.add((Integer) singleUser.get("PythonLevel"));
-//            CSharpLevel.add((Integer) singleUser.get("CSharpLevel"));
-//            WindowsLevel.add((Integer) singleUser.get("WindowsLevel"));
-//            LinuxLevel.add((Integer) singleUser.get("LinuxLevel"));
-//            OSXLevel.add((Integer) singleUser.get("OSXLevel"));
-//            AndroidLevel.add((Integer) singleUser.get("AndroidLevel"));
-//            IOSLevel.add((Integer) singleUser.get("IOSLevel"));
-//            CPPLevel.add((Integer) singleUser.get("CPPLevel"));
-//            HTMLLevel.add((Integer) singleUser.get("HTMLLevel"));
-//            CourseNum.add((Integer) singleUser.get("CourseNum"));
-//            SectionNum.add((Integer) singleUser.get("SectionNum"));
-//            inGroup.add((Integer) singleUser.get("inGroup"));
-//            groupName.add((String) singleUser.get("groupName"));
-//            displayName.add((String) singleUser.get("displayName"));
-//            uid.add((String) singleUser.get("uid"));
-//        }
-//        int index = -1;
-//        ArrayList<User> out = new ArrayList<>();
-//        for (String child : uid) {
-//            index++;
-//            //the longest line
-//            User use1 = new User(
-//                    ArtLevel.get(index).intValue(),
-//                    DesignLevel.get(index).intValue(),
-//                    LeadershipLevel.get(index).intValue(),
-//                    JavaLevel.get(index).intValue(),
-//                    PythonLevel.get(index).intValue(),
-//                    CSharpLevel.get(index).intValue(),
-//                    WindowsLevel.get(index).intValue(),
-//                    LinuxLevel.get(index).intValue(),
-//                    OSXLevel.get(index).intValue(),
-//                    AndroidLevel.get(index).intValue(),
-//                    IOSLevel.get(index).intValue(),
-//                    CPPLevel.get(index).intValue(),
-//                    HTMLLevel.get(index).intValue(),
-//                    CourseNum.get(index).intValue(),
-//                    SectionNum.get(index).intValue(),
-//                    inGroup.get(index).intValue(),
-//                    groupName.get(index).toString(),
-//                    displayName.get(index).toString(),
-//                    child.toString());
-//            out.add(use1);
-//        }
-//        return out;
-//    }
 
     public Boolean makeNewGroup(int groupSize, ArrayList<User> user) {
         if (groupSize>0) {
@@ -230,7 +136,9 @@ public class newGroupActivity extends AppCompatActivity {
         ref.setValue(val);
     }
     public void changeGroup(String group, String uid) {
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(uid).child("groupName");
+        ref.setValue(group);
+        ref = FirebaseDatabase.getInstance().getReference().child("Groups").child(group);
         ref.setValue(group);
     }
     protected String makeGroupKey() {
