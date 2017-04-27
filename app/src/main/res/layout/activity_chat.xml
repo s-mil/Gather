@@ -43,15 +43,17 @@ tools:context="com.gather.MessageActivity">
         android:gravity="top"
         android:layout_toStartOf="@+id/btn_send_message"
         />
+
     <Button
         android:id="@+id/btn_send_message"
-        android:layout_marginRight="10dp"
-        android:textColor="#FFFFFF"
         android:layout_width="72dp"
         android:layout_height="40dp"
-        android:text="Send"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
         android:background="@color/input_register_bg"
-        android:layout_alignParentEnd="true"/>
+        android:onClick="onClick"
+        android:text="Send"
+        android:textColor="#FFFFFF" />
 </RelativeLayout>
 
 
