@@ -2,12 +2,8 @@ package com.gather;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuth.AuthStateListener;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,7 +11,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class newGroupActivity extends AppCompatActivity {
@@ -26,7 +21,6 @@ public class newGroupActivity extends AppCompatActivity {
     DatabaseReference userInfo = ref.child("users");
     User item = new User();
     ArrayList<User> list = new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +32,7 @@ public class newGroupActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         //Get map of users in datasnapshot
-                      ArrayList<User> userIn = collectUsers((Map<String,Object>) dataSnapshot.getValue());
+                        ArrayList<User> userIn = collectUsers((Map<String,Object>) dataSnapshot.getValue());
                     }
 
                     @Override
@@ -48,7 +42,7 @@ public class newGroupActivity extends AppCompatActivity {
                 });
     }
     private ArrayList<User> collectUsers(Map<String,Object> users) {
-//initialize an array list for each data used in User class
+        //initialize an array list for each data used in User class
         ArrayList<Integer> ArtLevel = new ArrayList<>();
         ArrayList<Integer> DesignLevel = new ArrayList<>();
         ArrayList<Integer> LeadershipLevel = new ArrayList<>();
