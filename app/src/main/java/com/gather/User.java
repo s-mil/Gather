@@ -59,7 +59,6 @@ public class User {
         list.add(AndroidLevel);
         list.add(IOSLevel);
         list.add(CPPLevel);
-        list.add(CPPLevel);
         list.add(HTMLLevel);
         return list;
     }

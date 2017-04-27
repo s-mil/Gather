@@ -35,7 +35,7 @@ public class mySkillsActivity extends AppCompatActivity {
         spinnerchangePython = (Spinner) findViewById(R.id.spinner_Python);
         spinnerchangeCSharp = (Spinner) findViewById(R.id.spinner_CSharp);
         spinnerchangeWindows = (Spinner) findViewById(R.id.spinner_Windows);
-        spinnerchangeLinux = (Spinner) findViewById(R.id.spinner_Windows);
+        spinnerchangeLinux = (Spinner) findViewById(R.id.spinner_Linux);
         spinnerchangeOSX = (Spinner) findViewById(R.id.spinner_OSX);
         spinnerchangeAndroid = (Spinner) findViewById(R.id.spinner_Android);
         spinnerchangeIOS = (Spinner) findViewById(R.id.spinner_IOS);
