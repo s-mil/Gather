@@ -75,6 +75,9 @@ public class User {
 //    public int getSection() {
 //        return SectionNum;
 //    }
+    public String getUid() {
+        return uid;
+    }
     public String getGroupName() {
         return groupName;
     }
